@@ -1,0 +1,23 @@
+{
+  "name": "bank",
+  "version": "1.0.0",
+  "description": "Projekat za potrebe kursa iz FE programiranja",
+  "main": "bank.js",
+  "scripts": {
+    "start": "node .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IT-Prekvalifikacije-2022-Frontend/BE-Simple-bank-example.git"
+  },
+  "author": "Jovana Jovanovic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IT-Prekvalifikacije-2022-Frontend/BE-Simple-bank-example/issues"
+  },
+  "homepage": "https://github.com/IT-Prekvalifikacije-2022-Frontend/BE-Simple-bank-example#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
