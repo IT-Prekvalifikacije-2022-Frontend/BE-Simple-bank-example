@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/IT-Prekvalifikacije-2022-Frontend/BE-Simple-bank-example#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.18.2"
   }
 }

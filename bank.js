@@ -1,5 +1,7 @@
 const express = require('express')
+const cors = require('cors')
 const app = express();
+app.use(cors())
 app.use(express.json()) //naznaka da se podaci salju u JSON formatu
 app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
@@ -40,6 +42,7 @@ app.post('/api/v1/login', (req, res) => {
 // url = 'localhost:3003/api/v1/transaction'
 // method = 'GET'
 app.get('/api/v1/transaction', (req, res) => {
+
     console.log('Dobavljanje svih transakcija')
     res.send(transactions)
 })
