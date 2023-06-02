@@ -35,7 +35,7 @@ app.post('/api/v1/login', (req, res) => {
     if(user){
         res.status(200).send(user);
     }
-    res.status(400).send(`Korisnicko ime i/ili lozinka nisu ispravni.`)
+    res.status(400).send({message: `Korisnicko ime i/ili lozinka nisu ispravni.`})
 })
 
 // dobavljanje svih transakcija
@@ -55,7 +55,7 @@ app.get('/api/v1/transaction/:id', (req, res) => {
     console.log(`Dobavljanje transakcije sa id-om ${req.params.id}`);
     const t = transactions.find((t) => t.id == req.params.id);
     if(t == null){
-        res.status(404).send(`Transakcija sa id-om ${req.params.id} ne postoji.`);
+        res.status(404).send({message: `Transakcija sa id-om ${req.params.id} ne postoji.`});
     }
     res.status(200).send(t);
 
@@ -80,7 +80,7 @@ app.post('/api/v1/transaction', (req, res) => {
         date: new Date(), //datum ce da bude datum kada se transakcija kreira i to cemo dodati na back-u
     }
     transactions.push(new_t);
-    res.status(200).send("Transakcija je uspesno dodata");
+    res.status(200).send({message: "Transakcija je uspesno dodata"});
 }) 
 
 // izmena postojece transakcije
@@ -105,9 +105,9 @@ app.put('/api/v1/transaction/:id', (req, res) => {
         return t;
     })
     if(success_change)
-        res.status(200).send(`Transakcija je uspesno izmenjena`);
+        res.status(200).send({message: `Transakcija je uspesno izmenjena`});
     else
-        res.status(404).send(`Transakcija ne postoji`);
+        res.status(404).send({message: `Transakcija ne postoji`});
 })
 
 // url = 'localhost:3003/api/v1/transaction/:id'
@@ -116,10 +116,10 @@ app.put('/api/v1/transaction/:id', (req, res) => {
 app.delete('/api/v1/transaction/:id', (req, res) => {
     console.log(`Brisanje transakcije sa id-om ${req.params.id}`)
     transactions = transactions.filter(t => t.id != req.params.id);
-    res.status(200).send(`Transakcija ${req.params.id} je uspesno obrisana`)
+    res.status(200).send({message: `Transakcija ${req.params.id} je uspesno obrisana`})
 })
 
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+    console.log(`Bank app listening on port ${port}`)
   })
