@@ -100,7 +100,7 @@ app.put('/api/v1/transaction/:id', (req, res) => {
     transactions = transactions.map(t => {
         if(t.id == req.params.id){
             success_change = true;
-            return {...req.body, ...t}
+            return {...req.body}
         }
         return t;
     })
